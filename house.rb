@@ -1,24 +1,24 @@
 #!/usr/bin/ruby -w
 
 class House
+  class Identity
+    def order data
+      data
+    end
+
+    def format parts
+      parts
+    end
+  end
+
   attr_reader :formatter, :data
 
-  def initialize orderer: Defaults.new, formatter: Defaults.new
+  def initialize orderer: Identity.new, formatter: Identity.new
     @formatter = formatter
     @data = orderer.order(DATA)
   end
 
   # ...
-end
-
-class Defaults
-  def order data
-    data
-  end
-
-  def format parts
-    parts
-  end
 end
 
 class RandomOrder
