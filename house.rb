@@ -35,8 +35,25 @@ class EchoFormatter
   end
 end
 
+class RandomHouse < House
+  def initialize
+    super orderer: RandomOrder.new
+  end
+end
+
+class EchoHouse < House
+  def initialize
+    super formatter: EchoFormatter.new
+  end
+end
+
+class RandomEchoHouse < House
+  def initialize
+    super orderer: RandomOrder.new, formatter: EchoFormatter.new
+  end
+end
+
 # puts House.new.recite
-# puts House.new(orderer: RandomOrder.new).recite
-# puts House.new(formatter: EchoFormatter.new).recite
-# puts House.new(orderer: RandomOrder.new,
-#                formatter: EchoFormatter.new).recite
+# puts RandamHouse.new.recite
+# puts EchoHouse.new.recite
+# puts RandomEchoHouse.new.recite
