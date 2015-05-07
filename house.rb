@@ -3,7 +3,7 @@
 class House
   attr_reader :formatter, :data
 
-  def initialize orderer: DefaultOrder.new, formatter: DefaultFormatter.new
+  def initialize orderer: Defaults.new, formatter: Defaults.new
     @formatter = formatter
     @data = orderer.order(DATA)
   end
@@ -11,21 +11,19 @@ class House
   # ...
 end
 
-class DefaultOrder
-  def order data # this is &:itself (or lambda { |x| x })
+class Defaults
+  def order data
     data
+  end
+
+  def format parts
+    parts
   end
 end
 
 class RandomOrder
   def order data
     data.shuffle
-  end
-end
-
-class DefaultFormatter
-  def format parts # this is &:itself
-    parts
   end
 end
 
