@@ -2,18 +2,18 @@
 
 class House
   class Identity
-    def order data
+    def self.order data
       data
     end
 
-    def format parts
+    def self.format parts
       parts
     end
   end
 
   attr_reader :formatter, :data
 
-  def initialize orderer: Identity.new, formatter: Identity.new
+  def initialize orderer: Identity, formatter: Identity
     @formatter = formatter
     @data = orderer.order(DATA)
   end
