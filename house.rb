@@ -12,7 +12,7 @@ class House
 end
 
 class DefaultOrder
-  def order data
+  def order data # this is &:itself (or lambda { |x| x })
     data
   end
 end
@@ -24,7 +24,7 @@ class RandomOrder
 end
 
 class DefaultFormatter
-  def format parts
+  def format parts # this is &:itself
     parts
   end
 end
