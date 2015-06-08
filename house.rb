@@ -45,13 +45,9 @@ class EchoHouse < House
   end
 end
 
-class RandomEchoHouse < House
-  def initialize
-    super orderer: RandomOrder.new, formatter: EchoFormatter.new
-  end
-end
-
 # puts House.new.recite
 # puts RandamHouse.new.recite
 # puts EchoHouse.new.recite
-# puts RandomEchoHouse.new.recite
+
+# or any other combo:
+House.new orderer: RandomOrder.new, formatter: EchoFormatter.new
